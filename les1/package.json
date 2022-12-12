@@ -1,0 +1,8 @@
+{
+  "name": "les1",
+  "scripts": {
+    "start": "parcel ./index.html"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,1 @@
+<p>&copy; <?php echo $name ?> <?php echo date('Y') ?> - <?php echo date('H\hi\ms\s - e') ?></p>

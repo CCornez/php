@@ -1,5 +1,6 @@
 <?php
-require './data/todo.php'
+require './data/todo.php';
+require './helpers.php';
 ?>
 <html>
 
@@ -62,9 +63,23 @@ require './data/todo.php'
                                             <td class="align-middle">
                                                 <span><?= date('j M, H\ui', strtotime($todo['created_at'])) ?></span>
                                             </td>
-                                            <td class="align-middle">
-                                                <button type="button" class="btn btn-warning">Mark as done</button>
-                                            </td>
+                                            <?php if ($todo['completed_at']) { ?>
+                                                <td class="align-middle">
+                                                    <a href="?unComplete=<?= $todo['id'] ?>">
+                                                        <button type="button" class="btn btn-warning">Mark as undone</button>
+                                                    </a>
+                                                </td>
+                                                <td class="align-middle">
+                                                    <span><?= get_time_ago(strtotime($todo['completed_at'])) ?></span>
+                                                </td>
+                                            <?php } else { ?>
+                                                <td class="align-middle">
+
+                                                    <a href="?completed=<?= $todo['id'] ?>">
+                                                        <button type="button" class="btn btn-warning">Mark as done</button>
+                                                    </a>
+                                                </td>
+                                            <?php } ?>
                                         </tr>
                                     <?php } ?>
                                 </tbody>
